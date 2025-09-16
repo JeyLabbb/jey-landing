@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bienvenido a bordo — Jeylabbb</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- HERO -->
+  <header class="hero">
+    <h1>Tu billete de <span>creatividad</span></h1>
+    <p>Entra al canal y recibe avances reales, atajos de IA y lanzamientos antes que nadie.</p>
+  </header>
+
+  <!-- FORM -->
+  <main class="card">
+    <form id="form" autocomplete="on">
+      <div class="field">
+        <label for="name">Nombre (opcional)</label>
+        <input id="name" name="name" type="text" placeholder="Tu nombre">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="tu@email.com" required>
+      </div>
+      <button id="cta" class="btn" type="submit">Subirse al tren</button>
+      <p id="msg" class="msg" role="status" aria-live="polite"></p>
+      <p class="small muted">Al continuar aceptas recibir correos. Puedes darte de baja cuando quieras.</p>
+    </form>
+  </main>
+
+  <!-- ANIMACIONES (puertas + asiento)—opcionales -->
+  <div id="doors" aria-hidden="true">
+    <div class="door left"></div>
+    <div class="door right"></div>
+  </div>
+  <div id="seat" aria-hidden="true">ASIENTO 12A RESERVADO</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
