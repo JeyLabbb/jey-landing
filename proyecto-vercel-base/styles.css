@@ -1,0 +1,62 @@
+/* Estilos base */
+:root { --bg:#0b0d13; --card:#121521; --ink:#e8eaef; --muted:#9aa3b6; --brand:#8aa0ff; --accent:#12172a; --bd:#2a3551; --radius:14px; --speed:.55s; }
+
+* { box-sizing: border-box; }
+html, body { height:100%; }
+body {
+  margin:0; background:var(--bg); color:var(--ink);
+  font: 500 16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display:flex; flex-direction:column; align-items:center;
+  padding:24px;
+}
+
+.hero { text-align:center; margin: 8px 0 18px; }
+.hero h1 { margin:0 0 8px; font-size: clamp(28px, 4vw, 40px); font-weight: 900; letter-spacing:-.02em; }
+.hero h1 span { color: var(--brand); }
+.hero p { margin:0; color:#c7ccda; }
+
+.card {
+  width:min(720px, 100%);
+  background:var(--card);
+  border-radius: var(--radius);
+  padding: clamp(16px, 4vw, 28px);
+  border: 1px dashed var(--bd);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+form { display:grid; gap:12px; }
+.field { display:grid; gap:6px; }
+label { font-size:13px; color:var(--muted); }
+input {
+  width:100%; padding:12px 14px; border-radius:10px; border:1px solid #263041; background:#0f1424; color:var(--ink);
+  outline:none;
+}
+input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(138,160,255,.2); }
+
+.btn {
+  margin-top:6px; padding:12px 16px; border:0; border-radius:12px; background:var(--brand); color:#0b0d13;
+  font-weight:800; cursor:pointer;
+}
+.btn:disabled { opacity:.6; cursor:not-allowed; }
+
+.msg { min-height:22px; margin:0; }
+.small { font-size:12px; }
+.muted { color: var(--muted); }
+
+/* Puertas tipo tren */
+#doors{ position:fixed; inset:0; display:flex; z-index:9999; pointer-events:none; }
+#doors .door{ flex:1; background:var(--bg); transform:translateX(0); }
+#doors.open .left{ animation:doorLeft var(--speed) ease-in forwards; }
+#doors.open .right{ animation:doorRight var(--speed) ease-in forwards; }
+@keyframes doorLeft  { to { transform:translateX(-100%); } }
+@keyframes doorRight { to { transform:translateX(100%); } }
+
+/* Asiento reservado */
+#seat{
+  position:fixed; bottom:24px; right:24px;
+  padding:8px 12px; border-radius:10px; background:#111526; color:#8ea0ff;
+  font:700 12px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  opacity:0; transform:translateY(10px);
+}
+#seat.show{ animation: seatIn .45s ease forwards; }
+@keyframes seatIn { to { opacity:1; transform:translateY(0); } }
